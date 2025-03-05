@@ -1,0 +1,6 @@
+pdf2img~=0.1.2
+vllm==0.7.3
+qwen-vl-utils~=0.0.10
+accelerate~=1.4.0
+transformers~=4.49.0
+torch==2.5.1
