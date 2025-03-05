@@ -48,6 +48,18 @@ pdf2md_llm <pdf_file> [options]
 pdf2md_llm example.pdf --model "Qwen/Qwen2.5-VL-3B-Instruct-AWQ" --output_folder "./output"
 ```
 
+##### Model Support:
+Currently the following Qwen2.5-VL models are supported: 
+
+* `Qwen/Qwen2.5-VL-3B-Instruct`
+* `Qwen/Qwen2.5-VL-3B-Instruct-AWQ`
+* `Qwen/Qwen2.5-VL-7B-Instruct`
+* `Qwen/Qwen2.5-VL-7B-Instruct-AWQ`
+* `Qwen/Qwen2.5-VL-72B-Instruct`
+* `Qwen/Qwen2.5-VL-72B-Instruct-AWQ`
+
+If you want to use a different model, feel free to add a vLLM compatible model to the factory function `llm_model()` in `llm.py`
+
 ### Python API
 
 You can use the `pdf2md_llm` package via the **Python API**.
