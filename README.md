@@ -8,27 +8,31 @@ The package leverages the `pdf2image` library to convert PDF pages to images and
 
 - Convert PDF files to images.
 - Generate Markdown text from images using a local LLM.
+- Keep your data private. No third-party file uploads. 
 
 ## Installation
 
-To install the package, clone the repository and install the dependencies:
+You need a CUDA compatible GPU to run local LLMs with vLLM.
+
+You can use `pip` to install the package:
 
 ```bash
-git clone https://github.com/leoneversberg/pdf2md_llm.git
-cd pdf2md_llm
-pip install -r requirements.txt
+pip install pdf2md-llm
 ```
 ## Usage
+
 ### CLI
+
 You can use the `pdf2md_llm` package via the **command line interface (CLI)**.
 
 To convert a PDF file to Markdown, run the following command:
 
 ```bash
-python -m pdf2md_llm.cli <pdf_file> [options]
+pdf2md_llm <pdf_file> [options]
 ```
 
 #### Options
+
 * `pdf_file`: Path to the PDF file to convert.
 * `--model`: Name of the model to use (default: `Qwen/Qwen2.5-VL-3B-Instruct-AWQ`).
 * `--dtype`: Data type for the model weights and activations (default: `None`).
@@ -39,11 +43,13 @@ python -m pdf2md_llm.cli <pdf_file> [options]
 * `--output_folder`: Folder to save the output Markdown file (default: `./out`).
 
 #### Example
+
 ```bash
-python -m pdf2md_llm.cli example.pdf --model "Qwen/Qwen2.5-VL-3B-Instruct-AWQ" --output_folder "./output"
+pdf2md_llm example.pdf --model "Qwen/Qwen2.5-VL-3B-Instruct-AWQ" --output_folder "./output"
 ```
 
 ### Python API
+
 You can use the `pdf2md_llm` package via the **Python API**.
 
 Basic usage:
@@ -84,9 +90,11 @@ For a full example, see [example_api.py](./pdf2md_llm/example_api.py)
 
 
 ## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgements
+
 * [pdf2image](https://github.com/Belval/pdf2image) for converting PDF files to images.
 
 * [Qwen2.5-VL](https://github.com/QwenLM/Qwen2.5-VL) LLM model

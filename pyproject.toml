@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf2md_llm"
+version = "0.1.1"
+description = "A package to convert PDF files to Markdown using a local LLM."
+readme = "README.md"
+authors = [
+  { name = "Leon Eversberg"}
+]
+license = {file = "LICENSE"}
+keywords = ["markdown", "pdf", "llm", "parser", "converter"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Environment :: GPU :: NVIDIA CUDA",
+  "Topic :: File Formats",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+requires-python = ">=3.10"
+dependencies = [
+  "pdf2img~=0.1.2",
+  "vllm==0.7.3",
+  "qwen-vl-utils~=0.0.10",
+  "accelerate~=1.4.0",
+  "transformers~=4.49.0",
+  "torch==2.5.1"
+]
+
+[project.scripts]
+pdf2md_llm = "pdf2md_llm.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/leoneversberg/pdf2md_llm"
+Repository = "https://github.com/leoneversberg/pdf2md_llm.git"

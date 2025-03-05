@@ -1,7 +1,6 @@
 import argparse
 import os
 import sys
-import torch
 from pdf2md_llm.llm import llm_model
 from pdf2md_llm.pdf2img import PdfToImg
 
