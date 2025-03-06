@@ -5,11 +5,19 @@ from pdf2md_llm.llm import llm_model
 from pdf2md_llm.pdf2img import PdfToImg
 
 
+def validate_file_path(file_path):
+    if not os.path.isfile(file_path):
+        raise argparse.ArgumentTypeError(f"File {file_path} does not exist.")
+    return file_path
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Convert PDF to Markdown using a local LLM."
     )
-    parser.add_argument("pdf_file", type=str, help="Path to the PDF file to convert.")
+    parser.add_argument(
+        "pdf_file", type=validate_file_path, help="Path to the PDF file to convert."
+    )
     parser.add_argument(
         "--model",
         type=str,
