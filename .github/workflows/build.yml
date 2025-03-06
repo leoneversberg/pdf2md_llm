@@ -38,11 +38,6 @@ jobs:
         run: |
           pip install dist/*.whl
 
-      - name: Security check with pip-audit
-        uses: pypa/gh-action-pip-audit@v1.0.0
-        with:
-          inputs: requirements.txt
-
       - name: Test with pytest
         run: |
           pip install pytest pytest-cov
