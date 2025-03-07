@@ -1,10 +1,6 @@
 import sys
 import os
 from vllm import SamplingParams
-
-## Add the project directory to the Python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from pdf2md_llm.llm import llm_model
 from pdf2md_llm.pdf2img import PdfToImg
 

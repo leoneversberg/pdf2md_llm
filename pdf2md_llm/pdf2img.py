@@ -57,8 +57,6 @@ class PdfToImg:
         Returns:
             list[str]: A list of paths to the generated image files.
         """
-        out_paths = []
-        print(f"Converting {file_path} to images ...")
 
         img_paths = convert_from_path(
             file_path,
@@ -69,6 +67,8 @@ class PdfToImg:
             dpi=self.dpi,
             **kwargs,
         )
-        out_paths.extend(img_paths)
+        
+        if img_paths is None or len(img_paths) == 0:
+            raise ValueError("No images generated.")
 
-        return out_paths
+        return img_paths

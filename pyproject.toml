@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pdf2md_llm"
-version = "0.1.1"
+version = "0.1.2"
 description = "A package to convert PDF files to Markdown using a local LLM."
 readme = "README.md"
 authors = [
@@ -13,7 +13,8 @@ authors = [
 license = {file = "LICENSE"}
 keywords = ["markdown", "pdf", "llm", "parser", "converter"]
 classifiers = [
-  "Programming Language :: Python :: 3",
+  Programming Language :: Python :: 3.10,
+  Programming Language :: Python :: 3.11,
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Environment :: GPU :: NVIDIA CUDA",
