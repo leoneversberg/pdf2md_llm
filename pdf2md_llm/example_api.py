@@ -12,10 +12,10 @@ if __name__ == "__main__":
         img_files = pdf2img.convert(pdf_file)
 
         llm = llm_model(
-            model="Qwen/Qwen2.5-VL-3B-Instruct-AWQ",
-            dtype="half",
-            max_num_seqs=1,
-            max_model_len=7000,
+            model="Qwen/Qwen2.5-VL-3B-Instruct-AWQ",  # Name of the huggingface model
+            dtype="half",  # Model data type
+            max_num_seqs=1,  # Maximum number of sequences per iteration
+            max_model_len=7000,  # Model context length
         )
 
         sampling_params = SamplingParams(
@@ -37,7 +37,9 @@ if __name__ == "__main__":
         # Append all pages to one Markdown file
         for img_file in img_files:
             markdown_text = llm.generate(
-                img_file, sampling_params=sampling_params
+                img_file,
+                prompt="Convert the provided image of a PDF document strictly into valid Markdown.",
+                sampling_params=sampling_params,
             )  # convert image to Markdown with LLM
             with open(output_path, "a", encoding="utf-8") as myfile:
                 myfile.write(markdown_text)

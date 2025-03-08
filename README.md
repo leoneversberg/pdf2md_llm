@@ -76,10 +76,8 @@ pdf2img = PdfToImg(size=(700, None), output_folder="./out")
 img_files = pdf2img.convert("example.pdf")
 
 llm = llm_model(
-    model="Qwen/Qwen2.5-VL-3B-Instruct-AWQ",
-    dtype="half",
-    max_num_seqs=1,
-    max_model_len=7000,
+    model="Qwen/Qwen2.5-VL-3B-Instruct-AWQ",  # Name of the huggingface model
+    dtype="half",  # Model data type
 )
 
 sampling_params = SamplingParams(
