@@ -19,7 +19,7 @@ def llm_model(model: str = "Qwen/Qwen2.5-VL-3B-Instruct-AWQ", **kwargs) -> BaseM
     Raises:
         ValueError: If the specified model is not supported.
     """
-    if "Qwen2.5-VL" in model:
+    if "qwen2.5-vl" in model.lower():
         return Qwen25VLModel(model=model, **kwargs)
     else:
         raise ValueError(f"Unsupported model: {model}")
