@@ -37,6 +37,7 @@ pdf2md_llm <pdf_file> [options]
 * `--model`: Name of the model to use (default: `Qwen/Qwen2.5-VL-3B-Instruct-AWQ`).
 * `--dtype`: Data type for the model weights and activations (default: `None`).
 * `--max_model_len`: Max model context length (default: `7000`).
+* `--prompt`: Custom prompt for the LLM. (default: `None`).
 * `--size`: Image size as a tuple (default: `(700, None)`).
 * `--dpi`: DPI of the images (default: `200`).
 * `--fmt`: Image format (default: `jpeg`).

@@ -29,14 +29,23 @@ def main():
         type=str,
         default=None,
         help="Data type for the model weights and activations.",
-        choices=["auto", "half", "float16", "bfloat16", "float", "float32"]
+        choices=["auto", "half", "float16", "bfloat16", "float", "float32"],
     )
     parser.add_argument(
         "--max_model_len", type=int, default=7000, help="Max model context length."
     )
+    parser.add_argument(
+        "--prompt", type=str, default=None, help="Custom prompt for the LLM."
+    )
     parser.add_argument("--size", type=tuple, default=(700, None), help="Image size.")
     parser.add_argument("--dpi", type=int, default=200, help="DPI of the images.")
-    parser.add_argument("--fmt", type=str, default="jpeg", help="Image format.", choices=["jpeg", "png", "ppm"])
+    parser.add_argument(
+        "--fmt",
+        type=str,
+        default="jpeg",
+        help="Image format.",
+        choices=["jpeg", "png", "ppm"],
+    )
     parser.add_argument(
         "--output_folder",
         type=str,
@@ -86,7 +95,7 @@ def main():
     # Append all pages to one Markdown file
     for img_file in img_files:
         try:
-            markdown_text = llm.generate(img_file)  # convert image to Markdown with LLM
+            markdown_text = llm.generate(img_file, prompt=args.prompt)  # convert image to Markdown with LLM
         except Exception as e:
             print(f"Error generating Markdown from image {img_file}: {e}")
             continue
